@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+   Copyright 2013 Phil Brown
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+ -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="self.philbrown.AbLETest"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="11" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <!-- If you have a large tablet (such as a 10"), you can simulate scaled down screen sizes
+        using these application-level meta-data. -->
+        <!-- This one will test a 7-inch device -->
+        <!-- <meta-data android:name="contentSize" 
+                   android:value="896x560" /> -->
+        <!-- This one will test a 5-inch device -->
+        <!-- <meta-data android:name="contentSize" 
+                   android:value="640x400" /> -->
+        <!-- If you choose to scale down the content view, this will set the color (or drawable)
+        of the area between the edge of the content view and the edge of the screen. -->
+        <!-- <meta-data android:name="background"
+                   android:value="\#FF0000" /> -->
+        <activity 
+            android:name=".AbLETestActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:configChanges="orientation"
+            android:screenOrientation="sensorLandscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <meta-data android:name="layout" 
+                       android:value="self.philbrown.AbLETest.layout.AbLETestLayout" />
+            
+        </activity>
+                   
+    </application>
+
+</manifest>

@@ -1,1 +1,1 @@
-This is the git repository for AbLE - Annotation-based Layout Engine. AbLE allows developers to write layout files in both Android XML and pure Java, with annotations. AbLE currently supports Android.
+Annotation-based Layout Engine (AbLE) is a layout engine for the Android platform that allows developers to write layouts using Java code and XML interchangeably.
