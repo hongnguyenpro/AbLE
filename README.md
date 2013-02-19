@@ -1,0 +1,1 @@
+This is the git repository for AbLE - Annotation-based Layout Engine. Able allows developers to write layout files in both Android XML and pure Java, with annotations. AbLE currently supports Android.
