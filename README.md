@@ -45,6 +45,9 @@ assign an Object to a variable, if it exists. Embed allows a layout class to be 
 can be used to set values that either have multiple parameters or none. Getter can be used to get an
 Object using any number of parameters during class layout.
 
+There is also a View Object called *AbLE_Annotation*. This can be set in XML and, using custom XML parameters,
+can point to an annotated layout file to be handled by AbLE. This class is currently still being tested.
+
 The benefits of using a code-based layout system include the ability to declare types and parameters
 programmatically, and use complex types (any Object).
 
