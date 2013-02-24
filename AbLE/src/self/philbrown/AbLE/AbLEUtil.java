@@ -75,7 +75,7 @@ public class AbLEUtil
 			log(m, warning, args);
 		} catch (Exception e)
 		{
-			Log.w("NPE", "Log Failed", e);
+			Log.w("AbLE", "Log Failed", e);
 		}
 	}
 	
@@ -91,7 +91,7 @@ public class AbLEUtil
 			log(m, information, args);
 		} catch (Exception e)
 		{
-			Log.w("NPE", "Log Failed", e);
+			Log.w("AbLE", "Log Failed", e);
 		}
 	}
 	
@@ -107,7 +107,7 @@ public class AbLEUtil
 			log(m, error, args);
 		} catch (Exception e)
 		{
-			Log.w("NPE", "Log Failed", e);
+			Log.w("AbLE", "Log Failed", e);
 		}
 	}
 	
@@ -123,7 +123,7 @@ public class AbLEUtil
 			log(m, debug, args);
 		} catch (Exception e)
 		{
-			Log.w("NPE", "Log Failed", e);
+			Log.w("AbLE", "Log Failed", e);
 		}
 	}
 	
@@ -139,7 +139,7 @@ public class AbLEUtil
 			log(m, verbose, args);
 		} catch (Exception e)
 		{
-			Log.w("NPE", "Log Failed", e);
+			Log.w("AbLE", "Log Failed", e);
 		}
 	}
 	
@@ -184,14 +184,14 @@ public class AbLEUtil
 			b.append(formatStackTrace(trace[index]));
 			b.append(buildCommaSeparatedString(args));
 			try {
-				logMethod.invoke(null, "NPE", String.format(Locale.US, b.toString(), args));
+				logMethod.invoke(null, "AbLE", String.format(Locale.US, b.toString(), args));
 			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}
 		} catch (Throwable t)
 		{
-			Log.w("NPE", "Log Failed", t);
+			Log.w("AbLE", "Log Failed", t);
 		}
 	}
 	
