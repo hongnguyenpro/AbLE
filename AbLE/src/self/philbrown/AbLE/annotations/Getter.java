@@ -27,7 +27,7 @@ import java.lang.annotation.Target;
  * {@code public ? getStuff(0, "tag1")} and place the returned value as the value of the variable {@code stuff}.<br>
  * 
  * <pre>
- * {@code @Setter}
+ * {@code @Getter}
  * public static Object stuff = new Object[]{0, "tag1"};
  * </pre>
  * @author Phil Brown
