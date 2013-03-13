@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>AbLE by phil-brown</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>AbLE</h1>
+        <p>Annotation-based Layout Engine (AbLE)</p>
+
+        <p class="view"><a href="https://github.com/phil-brown/AbLE">View the Project on GitHub <small>phil-brown/AbLE</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/phil-brown/AbLE/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/phil-brown/AbLE/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/phil-brown/AbLE">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Annotation-based Layout Engine (AbLE)</h2>
+
+<p>AbLE is a layout engine for the <code>Android</code> platform that allows 
+developers to write layouts using <code>Java</code> code and <code>XML</code> interchangeably.</p>
+
+<hr><h2>The Basics</h2>
+
+<p>There are 9 annotations that are currently used: <em>Layout</em>, <em>LayoutAdapter</em>, <em>XMLLayout</em>,
+<em>Invisible</em>, <em>Binding</em>, <em>Variable</em>, <em>Embed</em>, <em>Setter</em> and <em>Getter</em>.</p>
+
+<ul>
+<li>
+<strong>@Layout</strong> is used to create existing Android <code>View</code> classes in the layout. </li>
+<li>
+<strong>@LayoutAdapter</strong> works by providing a callback to get a view from a custom class. </li>
+<li>
+<strong><a href="https://github.com/Invisible" class="user-mention">@Invisible</a></strong> defines something that is not a view. </li>
+<li>
+<strong><a href="https://github.com/Variable" class="user-mention">@Variable</a></strong> declares an Object that is ignored by the layout system, but that
+non-variables can use. <code>Variables</code> can be handy for things that need to be modified before assigned.
+These modifications can happen in a <em>static block</em>. </li>
+<li>
+<strong><a href="https://github.com/Binding" class="user-mention">@Binding</a></strong> is generally unused, but can be used to assign an Object to a <code>@Variable</code>, if it exists.</li>
+<li>
+<strong><a href="https://github.com/Embed" class="user-mention">@Embed</a></strong> allows a layout class to be included in another layout as a child view. </li>
+<li>
+<strong><a href="https://github.com/Setter" class="user-mention">@Setter</a></strong> can be used to set values that either have multiple parameters or none. </li>
+<li>
+<strong>@Getter</strong> can be used to get an Object using any number of parameters during class layout.</li>
+</ul><p>There is also a <code>View</code> Object called <em>AbLE_Annotation</em>. This can be set in <code>XML</code> and, using custom <code>XML</code> parameters, can point to an annotated layout file to be handled by AbLE. This class is currently in beta, and should not be relied on as-is.</p>
+
+<p>The benefits of using a code-based layout system include the ability to declare types and parameters
+programmatically, and use complex types (any Object).</p>
+
+<p>There are downsides as well. For example, there is no validation of attributes. It is also not
+directly cross-platform compatible, but it requires less set up in Android than an XML-based architecture.</p>
+
+<h2>A little more</h2>
+
+<p>The layout inflater recursively creates all the layouts and set their attributes using reflection. Other features that improve speed of coding include the ability to define the layout file in activity <code>meta-data</code>.</p>
+
+<p>Currently available <code>meta-data</code> tags are as follows:</p>
+
+<p>At the <strong>Application</strong> level:</p>
+
+<ul>
+<li>
+<strong>contentSize</strong>: Specifies a down-scaled pixel width and height in the format <em>WxH</em>. <code>x</code> <strong>MUST</strong> be lower-case, and <code>W</code> and <code>H</code> <strong>MUST</strong> be <code>integer</code> values.</li>
+<li>
+<strong>background</strong>: Specifies the background image or color that should be set behind the shrunken screen.
+This is only used if <code>contentSize</code> is set. To use a background resource, set the
+<code>android:resource</code> attribute. Otherwise, if a <code>String</code> is used, use a color, such as "red" or "blue".
+A hex color should be preceded with an escape character ("\"). See <a href="http://stackoverflow.com/questions/14692335/specify-hex-color-value-in-android-metadata">Stack Overflow</a>.</li>
+</ul><p>At the <strong>Activity</strong> level:</p>
+
+<ul>
+<li>
+<strong>layout</strong>: Specifies the class that contains the layout file to inflate for the Activity.</li>
+</ul><p>Finally, there are many useful functions for logging, debugging, and gathering information about the device and screen size available in both the <code>AbLEActivity</code> and <code>AbLEUtil</code> classes.</p>
+
+<p>Much more detailed information is included in the <em>javadocs</em>, and a simple example is provided as a test project.</p>
+
+<hr><h2>LICENSE</h2>
+
+<p>Copyright 2013 Phil Brown</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+The license text is printed below, and you may obtain a copy of 
+the License at</p>
+
+<pre><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License (online or below) for the specific language governing permissions and
+limitations under the License.</p>
+
+<hr><p>For the redistribution section of the license, there is a Java annotation
+available on GitHub (and already within AbLE) that is meant for annotating 
+changes to source code.</p>
+
+<p>Feel free to use this for annotating changes to AbLE. You can find this 
+code at <a href="https://github.com/phil-brown/Modified">https://github.com/phil-brown/Modified</a> or in the model package.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/phil-brown">phil-brown</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
