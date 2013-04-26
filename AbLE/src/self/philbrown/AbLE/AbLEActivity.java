@@ -266,17 +266,11 @@ public class AbLEActivity extends Activity {
 		isKeyboardVisible = state;
 		if (state)
 		{
-			for (ActivityListener listener : listeners)
-			{
-				listener.onKeyboardShown();
-			}
+			onKeyboardShown();
 		}
 		else
 		{
-			for (ActivityListener listener : listeners)
-			{
-				listener.onKeyboardHidden();
-			}
+			onKeyboardHidden();
 		}
 	}
 	
@@ -388,6 +382,28 @@ public class AbLEActivity extends Activity {
 		if (listeners.contains(listener))
 			return true;
 		return false;
+	}
+	
+	/**
+	 * Called when the keyboard is shown on screen.
+	 */
+	public void onKeyboardShown()
+	{
+		for (ActivityListener listener : listeners)
+		{
+			listener.onKeyboardShown();
+		}
+	}
+	
+	/**
+	 * Called when the keyboard is hidden from the screen.
+	 */
+	public void onKeyboardHidden()
+	{
+		for (ActivityListener listener : listeners)
+		{
+			listener.onKeyboardShown();
+		}
 	}
 	
 	@Override
