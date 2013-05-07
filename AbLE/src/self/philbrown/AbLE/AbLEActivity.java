@@ -319,16 +319,7 @@ public class AbLEActivity extends Activity {
 		}
 		else
 		{
-			if (v instanceof AbLE_Annotation)
-			{
-				for (int i = 0; i < ((AbLE_Annotation) v).getAbLEChildCount(); i++)
-				{
-					View _v = recursivelyFindViewById(id, ((AbLE_Annotation) v).getAbLEChildAt(i));
-					if (_v != null)
-						return _v;
-				}
-			}
-			else if (v instanceof ViewGroup)
+			if (v instanceof ViewGroup)
 			{
 				for (int i = 0; i < ((ViewGroup) v).getChildCount(); i++)
 				{

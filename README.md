@@ -1,7 +1,12 @@
 Annotation-based Layout Engine (AbLE) is a layout engine for the Android platform that allows 
 developers to write layouts using Java code and XML interchangeably.
 
+It also provides easy callbacks for modifying a view directly after it has been added to the layout,
+and provides many utilities to manipulate them to fit various screen sizes and resolutions.
+
 A test project is included, and further discussion can be found below the license.
+
+Check out the Github Page at http://phil-brown.github.io/AbLE/.
 
 ## LICENSE
 
@@ -46,7 +51,7 @@ can be used to set values that either have multiple parameters or none. Getter c
 Object using any number of parameters during class layout.
 
 There is also a View Object called *AbLE_Annotation*. This can be set in XML and, using custom XML parameters,
-can point to an annotated layout file to be handled by AbLE. This class is currently still being tested.
+can point to an annotated layout file to be handled by AbLE.
 
 The benefits of using a code-based layout system include the ability to declare types and parameters
 programmatically, and use complex types (any Object).

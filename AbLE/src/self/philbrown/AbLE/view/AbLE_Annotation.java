@@ -32,12 +32,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 /**
- * This class provides a way for AbLE layouts to be enclosed within an XML file. Child views will be added
- * to the inflated view. This view can work if the annotated layout is broken, by not adding it as a child, and
- * by adding all child views as direct children of this view.
- * 
- * FIXME: This class doesn't work quite right in layouts.
- * 
+ * This class provides a way for AbLE layouts to be enclosed within an XML file.
  * @author Phil Brown
  */
 public class AbLE_Annotation extends FrameLayout
@@ -109,6 +104,8 @@ public class AbLE_Annotation extends FrameLayout
 						AbLE_View = AnnotatedLayoutInflater.inflate(ref.get(), _class, null);
 						ref = null;
 					}
+					ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT);
+					AbLE_View.setLayoutParams(params);
 					super.addView(AbLE_View);
 				} catch (Throwable t) {
 					AbLEUtil.err("Could not instantiate class %s.", clazz);
@@ -120,97 +117,6 @@ public class AbLE_Annotation extends FrameLayout
 		{
 			AbLEUtil.err("AbLE class must be specified!");
 		}
-	}
-	
-	/**
-	 * Adds the child view to {@link #AbLE_View}
-	 */
-	@Override
-	public void addView(View child)
-	{
-		if (AbLE_View == null)
-			super.addView(child);
-		else if (AbLE_View instanceof ViewGroup)
-			((ViewGroup) AbLE_View).addView(child);
-	}
-	
-	/**
-	 * Adds the child view to {@link #AbLE_View}
-	 */
-	@Override
-	public void addView(View child, int index)
-	{
-		if (AbLE_View == null)
-			super.addView(child, index);
-		else if (AbLE_View instanceof ViewGroup)
-			((ViewGroup) AbLE_View).addView(child, index);
-	}
-	
-	/**
-	 * Adds the child view to {@link #AbLE_View}
-	 */
-	@Override
-	public void addView(View child, ViewGroup.LayoutParams params)
-	{
-		if (AbLE_View == null)
-			super.addView(child, params);
-		else if (AbLE_View instanceof ViewGroup)
-			((ViewGroup) AbLE_View).addView(child, params);
-	}
-	
-	/**
-	 * Adds the child view to {@link #AbLE_View}
-	 */
-	@Override
-	public void addView(View child, int width, int height)
-	{
-		if (AbLE_View == null)
-			super.addView(child, width, height);
-		else if (AbLE_View instanceof ViewGroup)
-			((ViewGroup) AbLE_View).addView(child, width, height);
-	}
-	
-	/**
-	 * Adds the child view to {@link #AbLE_View}
-	 */
-	@Override
-	public void addView(View child, int index, ViewGroup.LayoutParams params)
-	{
-		if (AbLE_View == null)
-			super.addView(child, index, params);
-		else if (AbLE_View instanceof ViewGroup)
-			((ViewGroup) AbLE_View).addView(child, index, params);
-	}
-	
-	/**
-	 * Call this method to get the child count for the AbLE View.
-	 * @return the child count for the AbLE View.
-	 */
-	public int getAbLEChildCount()
-	{
-		if (AbLE_View == null)
-			return super.getChildCount();
-		if (AbLE_View instanceof ViewGroup)
-		{
-			return ((ViewGroup) AbLE_View).getChildCount();
-		}
-		return 0;
-	}
-	
-	/**
-	 * Gets the child within the AbLE View at the given index
-	 * @param index the index of the View child to retrieve
-	 * @return the child within the AbLE View at the given index, or null if the index is invalid.
-	 */
-	public View getAbLEChildAt(int index)
-	{
-		if (AbLE_View == null)
-			return super.getChildAt(index);
-		if (AbLE_View instanceof ViewGroup)
-		{
-			return ((ViewGroup) AbLE_View).getChildAt(index);
-		}
-		return null;
 	}
 
 }

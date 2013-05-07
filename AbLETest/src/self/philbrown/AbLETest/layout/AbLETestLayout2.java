@@ -21,6 +21,7 @@ import self.philbrown.AbLE.AbLEUtil;
 import self.philbrown.AbLE.annotations.Layout;
 import self.philbrown.AbLETest.R;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.view.View;
 
 /**
@@ -29,41 +30,51 @@ import android.view.View;
  * @author Phil Brown
  *
  */
-@Layout(viewClass="android.widget.TextView")
+@Layout
 public class AbLETestLayout2 
 {
-	/**
-	 * The best way to set unique ids for all AbLE elements is to create the IDs in res/values/ids.xml.
-	 * Not using this is ok for small applications, but if any ids are used twice, there will be 
-	 * bugs that are difficult to trace.
-	 */
-	public static int id = R.id.text_view;
+	public static int backgroundColor = Color.CYAN;
 	
-	/**
-	 * Sets the text of this TextView.
-	 * @see android.widget.TextView#setText(CharSequence)
-	 */
-	public static CharSequence text = "This is the text!";
-	
-	/**
-	 * Sets the TextView text color to white
-	 * @see android.widget.TextView#setTextColor(int)
-	 */
-	public static int textColor = Color.WHITE;
-	
-	/**
-	 * Sets the view's background color
-	 */
-	public static int backgroundColor = Color.LTGRAY;
-	
-	/**
-	 * This method is called after the view has inflated
-	 * @param context
-	 * @param v
-	 */
-	public static void onLayoutComplete(AbLEActivity context, View v)
+	@Layout(viewClass="android.widget.TextView")
+	public static class InnerView
 	{
-		AbLEUtil.info("Inflated custom view");
+		/**
+		 * The best way to set unique ids for all AbLE elements is to create the IDs in res/values/ids.xml.
+		 * Not using this is ok for small applications, but if any ids are used twice, there will be 
+		 * bugs that are difficult to trace.
+		 */
+		public static int id = R.id.text_view;
+		
+		/**
+		 * Sets the text of this TextView.
+		 * @see android.widget.TextView#setText(CharSequence)
+		 */
+		public static CharSequence text = "This is the text!";
+		
+		/**
+		 * Sets the TextView text color to white
+		 * @see android.widget.TextView#setTextColor(int)
+		 */
+		public static int textColor = Color.WHITE;
+		
+		/**
+		 * Sets the view's background color
+		 */
+		public static int backgroundColor = Color.LTGRAY;
+		
+		/**
+		 * This method is called after the view has inflated
+		 * @param context
+		 * @param v
+		 */
+		public static void onLayoutComplete(AbLEActivity context, View v)
+		{
+			AbLEUtil.info("Inflated custom view");
+			v.bringToFront();
+			Rect r = AbLEUtil.absoluteBounds(v); 
+			AbLEUtil.info("View Bounds = (%d,%d,%d,%d)", r.left, r.top, r.right, r.bottom);
+		}
 	}
+	
 	
 }
