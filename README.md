@@ -4,7 +4,8 @@ developers to write layouts using Java code and XML interchangeably.
 It also provides easy callbacks for modifying a view directly after it has been added to the layout,
 and provides many utilities to manipulate them to fit various screen sizes and resolutions.
 
-A test project is included, and further discussion can be found below the license.
+A test project is included, and further discussion can be found below the license. There is also
+a sample application available at [Rotten Tomatoes Client](https://github.com/phil-brown/Rotten-Tomatoes-Client/tree/master/Nerdery).
 
 Check out the Github Page at http://phil-brown.github.io/AbLE/.
 
